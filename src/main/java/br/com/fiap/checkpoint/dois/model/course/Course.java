@@ -1,4 +1,4 @@
-package br.com.fiap.checkpoint.dois.model.subject;
+package br.com.fiap.checkpoint.dois.model.course;
 
 import br.com.fiap.checkpoint.dois.model.student.Student;
 import jakarta.persistence.*;

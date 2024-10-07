@@ -1,6 +1,6 @@
 package br.com.fiap.checkpoint.dois.model.student;
 
-import br.com.fiap.checkpoint.dois.model.subject.Course;
+import br.com.fiap.checkpoint.dois.model.course.Course;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
