@@ -1,11 +1,13 @@
 package br.com.fiap.checkpoint.dois.model.subject;
 
+import br.com.fiap.checkpoint.dois.model.student.Student;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_java_course")
@@ -33,5 +35,8 @@ public class Course {
 
     @Column(name = "course_hours", nullable = false)
     private Integer amountHours;
+
+    @OneToMany(mappedBy = "course")
+    private List<Student> students;
 
 }

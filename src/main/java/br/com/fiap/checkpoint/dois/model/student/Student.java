@@ -1,5 +1,6 @@
 package br.com.fiap.checkpoint.dois.model.student;
 
+import br.com.fiap.checkpoint.dois.model.subject.Course;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +9,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "tb_student")
+@Table(name = "tb_java_student")
 
 @Getter @Setter @NoArgsConstructor
 public class Student {
@@ -44,5 +45,9 @@ public class Student {
     @Column(name = "veteran_student", nullable = false)
     @Enumerated(EnumType.STRING)
     private FormerStudent formerStudent;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "course_id")
+    private Course course;
 
 }
