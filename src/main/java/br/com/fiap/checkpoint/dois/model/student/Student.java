@@ -1,6 +1,4 @@
 package br.com.fiap.checkpoint.dois.model.student;
-
-import br.com.fiap.checkpoint.dois.model.course.Course;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -46,8 +44,8 @@ public class Student {
     @Enumerated(EnumType.STRING)
     private FormerStudent formerStudent;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "course_id")
-    private Course course;
+   @Column(name = "course_nm", nullable = false)
+   @Enumerated(EnumType.STRING)
+    private CoursesList course;
 
 }

@@ -1,4 +1,4 @@
-package br.com.fiap.checkpoint.dois.model.course;
+package br.com.fiap.checkpoint.dois.model.student;
 
 public enum CoursesList {
 
