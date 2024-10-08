@@ -2,6 +2,8 @@ package br.com.fiap.checkpoint.dois.controller;
 
 import br.com.fiap.checkpoint.dois.model.student.CoursesList;
 import br.com.fiap.checkpoint.dois.model.student.Student;
+import br.com.fiap.checkpoint.dois.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -15,6 +17,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/students")
 public class StudentController {
 
+    @Autowired
+    private StudentService studentService;
 
     @GetMapping("register")
     public String studentRegistrations(Student student, Model model){
@@ -25,7 +29,9 @@ public class StudentController {
     @PostMapping("register")
     @Transactional
     public String studentEnroll(@ModelAttribute Student student, RedirectAttributes redirectAttributes){
-        return null;
+        studentService.registerStudent(student);
+        redirectAttributes.addFlashAttribute("message", "Student enrolled!");
+        return "redirect:/students/register";
     }
 
 }

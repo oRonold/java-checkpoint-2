@@ -1,5 +1,6 @@
 package br.com.fiap.checkpoint.dois.model.student;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,7 +19,7 @@ public class Student {
     @SequenceGenerator(name = "sq_student", sequenceName = "sq_student", allocationSize = 1)
     private Long id;
 
-    @Column(name = "student_nm", nullable = false)
+    @Column(name = "student_name", nullable = false)
     private String name;
 
     @Column(name = "student_birth", nullable = false)
@@ -36,15 +37,15 @@ public class Student {
     @Column(name = "student_phone", nullable = false, unique = true, length = 15)
     private String phone;
 
-    @Column(name = "student_active", nullable = false)
+    @Column(name = "student_status", nullable = false)
     @Enumerated(EnumType.STRING)
     private StudentStatus studentStatus;
 
-    @Column(name = "veteran_student", nullable = false)
+    @Column(name = "former_student", nullable = false)
     @Enumerated(EnumType.STRING)
     private FormerStudent formerStudent;
 
-   @Column(name = "course_nm", nullable = false)
+   @Column(name = "course_name", nullable = false)
    @Enumerated(EnumType.STRING)
     private CoursesList course;
 

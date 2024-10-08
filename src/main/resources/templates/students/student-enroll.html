@@ -11,7 +11,9 @@
     <div class="row justify-content-center" style="height: 100vh;">
         <div class="card shadow-lg p-4 col-md-6 align-self-center">
             <h2 class="text-center">Enroll Student</h2>
-
+            <div th:if="!${#strings.isEmpty(message)}" class="alert alert-success">
+                <span th:text="${message}"></span>
+            </div>
             <form th:action="@{/students/register}" method="post" th:object="${student}">
                 <div class="mb-3">
                     <label class="form-label">Name</label>
@@ -23,11 +25,11 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">ID Card Number</label>
-                    <input type="email" class="form-control" th:field="*{identityNumber}" placeholder="Your ID Card Number" required>
+                    <input type="text" class="form-control" th:field="*{identityNumber}" placeholder="Your ID Card Number" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="password" class="form-control" th:field="*{email}" placeholder="Email" required>
+                    <input type="email" class="form-control" th:field="*{email}" placeholder="Email" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Password</label>
