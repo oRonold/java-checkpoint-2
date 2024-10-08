@@ -34,4 +34,10 @@ public class StudentController {
         return "redirect:/students/register";
     }
 
+    @GetMapping("courses-list")
+    public String coursesList(Model model){
+        model.addAttribute("courses", CoursesList.values());
+        return "students/courses-list";
+    }
+
 }

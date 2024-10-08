@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Home Page</title>
     <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
-
     <style>
         .navbar-custom{
             background-color: #E91C5D;
@@ -20,7 +19,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Students Center</a>
+        <a class="navbar-brand" style="cursor:default;">Students Center</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,7 +41,7 @@
         <a class="btn btn-primary" th:href="@{/students/register}">Student Enroll</a>
     </div>
     <div class="mb-3">
-        <a class="btn btn-primary">Courses List</a>
+        <a class="btn btn-primary" th:href="@{/students/courses-list}">Courses List</a>
     </div>
     <div class="mb-3">
         <a class="btn btn-primary">Search for Active or Inactive Students</a>
@@ -52,7 +51,6 @@
     </div>
 </div>
 
-<!-- Bootstrap and jQuery JS -->
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 
