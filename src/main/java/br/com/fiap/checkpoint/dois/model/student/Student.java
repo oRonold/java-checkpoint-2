@@ -23,7 +23,7 @@ public class Student {
     private String name;
 
     @Column(name = "student_birth", nullable = false)
-    private LocalDate birthDate;
+    private LocalDate birthdate;
 
     @Column(name = "student_id_card", nullable = false, unique = true, length = 10)
     private String identityNumber;

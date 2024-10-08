@@ -2,6 +2,7 @@ package br.com.fiap.checkpoint.dois.controller;
 
 import br.com.fiap.checkpoint.dois.model.student.CoursesList;
 import br.com.fiap.checkpoint.dois.model.student.Student;
+import br.com.fiap.checkpoint.dois.model.student.StudentStatus;
 import br.com.fiap.checkpoint.dois.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,6 +39,23 @@ public class StudentController {
     public String coursesList(Model model){
         model.addAttribute("courses", CoursesList.values());
         return "students/courses-list";
+    }
+
+    @GetMapping("active-or-inactive")
+    public String searchActiveOrInactiveStudents(){
+        return "students/active-inactive-students";
+    }
+
+    @GetMapping("active")
+    public String studentsActive(Model model){
+        model.addAttribute("students", studentService.getAllStudentsActive());
+        return "students/active-students";
+    }
+
+    @GetMapping("inactive")
+    public String studentsInactive(Model model){
+        model.addAttribute("students", studentService.getAllStudentsInactive());
+        return "students/inactive-students";
     }
 
 }

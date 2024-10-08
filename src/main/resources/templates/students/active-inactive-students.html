@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Home Page</title>
+    <title>Search students</title>
     <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
 </head>
 <body>
@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="navbar-brand" style="color: #ffff" aria-current="page" href="#">Home</a>
+                    <a class="navbar-brand" style="color: #ffff" aria-current="page" th:href="@{/home}">Home</a>
                 </li>
             </ul>
         </div>
@@ -26,20 +26,15 @@
 </nav>
 
 <div class="container mt-5 text-center">
-    <h1>Welcome to the Students Center</h1>
-    <p>Select an option below to proceed:</p>
+    <h1>Choose one option</h1>
 
     <div class="mb-3">
-        <a class="btn btn-primary" th:href="@{/students/register}">Student Enroll</a>
+        <p>Search for active students:</p>
+        <a class="btn btn-primary" th:href="@{/students/active}">Active students</a>
     </div>
     <div class="mb-3">
-        <a class="btn btn-primary" th:href="@{/students/courses-list}">Courses List</a>
-    </div>
-    <div class="mb-3">
-        <a class="btn btn-primary" th:href="@{/students/active-or-inactive}">Search for Active or Inactive Students</a>
-    </div>
-    <div class="mb-3">
-        <a class="btn btn-primary">Search for Freshman or Veteran Students</a>
+        <p>Search for inactive students:</p>
+        <a class="btn btn-primary" th:href="@{/students/inactive}">Inactive students</a>
     </div>
 </div>
 
