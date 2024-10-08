@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -21,11 +22,19 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
+    public Optional<Student> findStudentId(Long id){
+        return studentRepository.findById(id);
+    }
+
     public List<Student> getAllStudentsActive() {
         return studentRepository.findAllByStudentStatusActive();
     }
 
     public List<Student> getAllStudentsInactive() {
         return studentRepository.findAllByStudentStatusInactive();
+    }
+
+    public void editStudent(Student student) {
+        studentRepository.save(student);
     }
 }
