@@ -49,11 +49,37 @@
             <td th:text="${student.formerStudent.getLabel()}"></td>
             <td th:text="${student.course.getLabel()}"></td>
             <td>
-                <a class="btn btn-info" th:href="@{/students/edit/}+${student.id}">Editar</a>
+                <a class="btn btn-info" th:href="@{/students/edit/}+${student.id}">Edit</a>
+            </td>
+            <td>
+                <button th:onclick="|document.getElementById('studentId').value = ${student.id}|" type="button" class="btn btn-danger"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal">Make Inactive</button>
             </td>
         </tr>
         </tbody>
     </table>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    The student will become inactive
+                </div>
+                <div class="modal-footer">
+                    <form th:action="@{/students/remove}" method="post">
+                        <input type="hidden" name="studentId" id="studentId">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-danger">Turn Inactive</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container mt-5 text-center">
         <a class="btn btn-primary" th:href="@{/students/active-or-inactive}">Return</a>
     </div>

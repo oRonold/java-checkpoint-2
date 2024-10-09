@@ -74,4 +74,20 @@ public class StudentController {
         }
     }
 
+    @PostMapping("remove")
+    @Transactional
+    public String removeStudent(@RequestParam("studentId") Long id, RedirectAttributes redirectAttributes){
+        studentService.removeStudent(id);
+        redirectAttributes.addFlashAttribute("message", "Student inactive!");
+        return "redirect:/students/active";
+    }
+
+    @PostMapping("delete")
+    @Transactional
+    public String deleteStudent(@RequestParam("studentId") Long id, RedirectAttributes redirectAttributes){
+        studentService.delete(id);
+        redirectAttributes.addFlashAttribute("message", "Student deleted!");
+        return "redirect:/students/inactive";
+    }
+
 }

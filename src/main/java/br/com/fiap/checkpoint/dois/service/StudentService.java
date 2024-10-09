@@ -37,4 +37,15 @@ public class StudentService {
     public void editStudent(Student student) {
         studentRepository.save(student);
     }
+
+    public void removeStudent(Long id){
+        var student = studentRepository.getReferenceById(id);
+        student.setStudentStatus(StudentStatus.INACTIVE);
+        student.setFormerStudent(FormerStudent.VETERAN);
+        studentRepository.save(student);
+    }
+
+    public void delete(Long id){
+        studentRepository.deleteById(id);
+    }
 }
