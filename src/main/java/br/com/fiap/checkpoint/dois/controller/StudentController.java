@@ -67,11 +67,7 @@ public class StudentController {
     public String editStudent(Student student, RedirectAttributes redirectAttributes){
         studentService.editStudent(student);
         redirectAttributes.addFlashAttribute("message", "Student edited!");
-        if(student.getStudentStatus() == StudentStatus.ACTIVE){
-            return "redirect:/students/active";
-        } else {
-            return "redirect:/students/inactive";
-        }
+        return "redirect:/students/active";
     }
 
     @PostMapping("remove")
